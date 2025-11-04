@@ -958,27 +958,9 @@
                 submitBtn.disabled = true;
                 submitBtn.textContent = 'Sending...';
                 
-                // Simulate form submission (replace with actual API call)
-                // Example with Formspree: action="https://formspree.io/f/YOUR_FORM_ID"
-                // Or use EmailJS, Netlify Forms, etc.
-                
-                setTimeout(() => {
-                    // Show success message
-                    successMessage.classList.add('show');
-                    form.reset();
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Send Message';
-                    
-                    // Hide success message after 5 seconds
-                    setTimeout(() => {
-                        successMessage.classList.remove('show');
-                    }, 5000);
-                }, 1000);
-
-                // For actual implementation, use this structure:
-                /*
+                // Using Formspree to receive form submissions
                 try {
-                    const response = await fetch('YOUR_FORM_ENDPOINT', {
+                    const response = await fetch('https://formspree.io/f/xwpwdwyo', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -991,16 +973,23 @@
                     });
                     
                     if (response.ok) {
+                        // Show success message
                         successMessage.classList.add('show');
                         form.reset();
+                        
+                        // Hide success message after 5 seconds
+                        setTimeout(() => {
+                            successMessage.classList.remove('show');
+                        }, 5000);
+                    } else {
+                        alert('There was an error sending your message. Please try again or email me directly at vardhanjogu@gmail.com');
                     }
                 } catch (error) {
-                    alert('There was an error sending your message. Please try again.');
+                    alert('There was an error sending your message. Please try again or email me directly at vardhanjogu@gmail.com');
                 } finally {
                     submitBtn.disabled = false;
                     submitBtn.textContent = 'Send Message';
                 }
-                */
             }
         });
 
