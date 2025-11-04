@@ -977,8 +977,37 @@
         document.getElementById('downloadResume').addEventListener('click', (e) => {
             e.preventDefault();
             
-            // Generate resume text from actual resume content
-            const resumeText = `JOGU SHANMUKHAA VARRDHAN | +91 96403 04930 | vardhanjogu@gmail.com
+            // Direct link to PDF in repository
+            window.location.href = 'Jogu_Shanmukhaa_Varrdhan_Resume.pdf';
+            
+            // Show feedback
+            const btn = document.getElementById('downloadResume');
+            const originalText = btn.textContent;
+            btn.textContent = '✓ Downloading...';
+            setTimeout(() => {
+                btn.textContent = originalText;
+            }, 2000);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
 linkedin.com/in/varrdhanjogu | portfolio-vardhan.vercel.app | Hyderabad, India
 
 CAREER OBJECTIVE
